@@ -17,6 +17,7 @@
         app:popupTheme="@style/ToolbarTheme"
         >
     </androidx.appcompat.widget.Toolbar>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/category_Recycler"
         android:layout_width="match_parent"
@@ -25,6 +26,7 @@
         android:overScrollMode="never"
         android:clipToPadding="false"
         android:scrollbars="none"/>
+
 <TextView
     android:id="@+id/highlighted"
     android:layout_width="match_parent"
@@ -35,6 +37,7 @@
     android:textStyle="bold"
     android:gravity="center"
     />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/home_content"
         android:layout_width="match_parent"

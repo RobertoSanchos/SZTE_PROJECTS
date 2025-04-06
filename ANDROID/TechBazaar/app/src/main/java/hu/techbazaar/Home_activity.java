@@ -106,6 +106,7 @@ public class Home_activity extends AppCompatActivity {
             FirebaseAuth.getInstance().signOut();
             finish();
             Intent Start_intent = new Intent(this, Start_activity.class);
+            Start_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(Start_intent);
             Toast.makeText(Home_activity.this, "Kijelentkezve!", Toast.LENGTH_SHORT).show();
             return true;
