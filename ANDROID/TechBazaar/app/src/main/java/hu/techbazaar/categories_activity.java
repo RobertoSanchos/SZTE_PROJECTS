@@ -71,11 +71,13 @@ public class categories_activity extends AppCompatActivity {
         else if (item.getItemId() == R.id.fav) return true;
         else if (item.getItemId() == R.id.logout) {
             FirebaseAuth.getInstance().signOut();
-            finish();
+            Toast.makeText(categories_activity.this, "Kijelentkezve!", Toast.LENGTH_SHORT).show();
+
             Intent Start_intent = new Intent(this, Start_activity.class);
             Start_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(Start_intent);
-            Toast.makeText(categories_activity.this, "Kijelentkezve!", Toast.LENGTH_SHORT).show();
+
+            finish();
             return true;
         }
         else return super.onOptionsItemSelected(item);
@@ -84,5 +86,15 @@ public class categories_activity extends AppCompatActivity {
     public void back_to_home(View view) {
         Intent home_intent = new Intent(this, Home_activity.class);
         startActivity(home_intent);
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (FirebaseAuth.getInstance().getCurrentUser() == null) {
+            Intent protected_intent = new Intent(this, Start_activity.class);
+            protected_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(protected_intent);
+            finish();
+        }
     }
 }
