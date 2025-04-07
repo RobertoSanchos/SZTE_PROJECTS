@@ -56,6 +56,7 @@ public class Home_activity extends AppCompatActivity {
         category_view.setAdapter(cadapter);
 
         highlighted = findViewById(R.id.highlighted);
+
         Animation slideIn = AnimationUtils.loadAnimation(this, R.anim.slide);
         highlighted.startAnimation(slideIn);
 
