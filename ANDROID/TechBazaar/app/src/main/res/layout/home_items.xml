@@ -66,16 +66,16 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/shopping_cart"
-                android:background="@drawable/rounded_button"
+                android:src="@drawable/toolbar_shopping_cart"
+                android:background="@drawable/items_rounded_button_background"
                 android:padding="5dp"
                 />
             <ImageButton
                 android:id="@+id/favorite"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_button"
-                android:src="@drawable/favorite_off"
+                android:background="@drawable/items_rounded_button_background"
+                android:src="@drawable/items_favorite_off"
                 android:layout_marginStart="5dp"
                 android:padding="5dp"
                 />

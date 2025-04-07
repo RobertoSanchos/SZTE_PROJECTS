@@ -24,7 +24,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.9"
-        app:srcCompat="@drawable/logo"/>
+        app:srcCompat="@drawable/main_logo"/>
 
     <EditText
         android:id="@+id/login_email"
@@ -66,7 +66,7 @@
             android:layout_height="wrap_content"
             android:text="@string/remember_password"
             android:textColor="@color/primaryc"
-            android:drawable="@drawable/check_in_active"
+            android:drawable="@drawable/registration_check_active"
             android:textStyle="bold"
             android:layout_marginStart="10dp"/>
     </LinearLayout>

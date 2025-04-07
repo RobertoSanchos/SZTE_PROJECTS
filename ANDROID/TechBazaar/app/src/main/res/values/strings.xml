@@ -62,30 +62,30 @@
     </string-array>
 
     <array name="items_images">
-        <item>@drawable/i5_10400f</item>
-        <item>@drawable/i7_12700k</item>
-        <item>@drawable/asus_b550f</item>
-        <item>@drawable/asrock_b450_pro4</item>
-        <item>@drawable/samsung_870_evo</item>
-        <item>@drawable/kingstone_kc_400</item>
-        <item>@drawable/corsair_case</item>
-        <item>@drawable/cooler_master_case</item>
+        <item>@drawable/highlighted_i5_10400f</item>
+        <item>@drawable/highlighted_i7_12700k</item>
+        <item>@drawable/highlighted_asus_b550f</item>
+        <item>@drawable/highlighted_asrock_b450_pro4</item>
+        <item>@drawable/highlighted_samsung_870_evo</item>
+        <item>@drawable/highlighted_kingstone_kc_400</item>
+        <item>@drawable/highlighted_corsair_case</item>
+        <item>@drawable/highlighted_cooler_master_case</item>
     </array>
 
     <array name="category_images">
-        <item>@drawable/motherboard_category</item>
-        <item>@drawable/cpu_category</item>
-        <item>@drawable/memory_category</item>
-        <item>@drawable/vga_category</item>
-        <item>@drawable/monitor_category</item>
-        <item>@drawable/ssd_category</item>
-        <item>@drawable/powers_category</item>
-        <item>@drawable/cases_category</item>
-        <item>@drawable/cooler_category</item>
-        <item>@drawable/printer_category</item>
-        <item>@drawable/keymo_category</item>
-        <item>@drawable/speaker_category</item>
-        <item>@drawable/cabel_category</item>
+        <item>@drawable/category_motherboard</item>
+        <item>@drawable/category_cpu</item>
+        <item>@drawable/category_memory</item>
+        <item>@drawable/category_vga</item>
+        <item>@drawable/category_monitor</item>
+        <item>@drawable/category_ssd</item>
+        <item>@drawable/category_powers</item>
+        <item>@drawable/category_cases</item>
+        <item>@drawable/category_cooler</item>
+        <item>@drawable/category_printer</item>
+        <item>@drawable/category_keyboardmouse</item>
+        <item>@drawable/category_speaker</item>
+        <item>@drawable/category_cabel</item>
     </array>
 
     <array name="items_prices">
