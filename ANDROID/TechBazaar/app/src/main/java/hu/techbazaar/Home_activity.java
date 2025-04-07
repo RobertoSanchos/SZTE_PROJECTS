@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,6 +58,8 @@ public class Home_activity extends AppCompatActivity {
         highlighted = findViewById(R.id.highlighted);
         Animation slideIn = AnimationUtils.loadAnimation(this, R.anim.slide);
         highlighted.startAnimation(slideIn);
+
+
     }
 
     private void load_data() {
@@ -93,13 +96,29 @@ public class Home_activity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.menu, menu);
+
+        MenuItem search_item = menu.findItem(R.id.search);
+        SearchView search_view = (SearchView) search_item.getActionView();
+
+        search_view.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                iadapter.getFilter().filter(newText);
+                return true;
+            }
+        });
+
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.search) return true;
-        else if (item.getItemId() == R.id.cart) return true;
+        if (item.getItemId() == R.id.cart) return true;
         else if (item.getItemId() == R.id.settings) return true;
         else if (item.getItemId() == R.id.fav) return true;
         else if (item.getItemId() == R.id.logout) {

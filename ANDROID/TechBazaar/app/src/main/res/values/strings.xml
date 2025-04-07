@@ -24,14 +24,14 @@
     <string name="higlighted">Kiemelt ajánlataink</string>
 
     <string-array name="items_names">
-        <item>Core i5-10400F \n</item>
-        <item>Core i7-12700K\n</item>
-        <item>Asus ROG STRIX B550-F GAMING\n</item>
-        <item>ASRock B450 Pro4\n</item>
-        <item>SSD 2.5" Samsung 870 Evo 500GB\n</item>
-        <item>Kingston SSDNow KC400 1 TB\n</item>
-        <item>CORSAIR iCUE 5000T RGB TG fekete\n</item>
-        <item>Cooler Master MasterCase H500M\n</item>
+        <item>Core i5-10400F</item>
+        <item>Core i7-12700K</item>
+        <item>Asus ROG STRIX B550-F GAMING</item>
+        <item>ASRock B450 Pro4</item>
+        <item>SSD 2.5" Samsung 870 Evo 500GB</item>
+        <item>Kingston SSDNow KC400 1 TB</item>
+        <item>CORSAIR iCUE 5000T RGB TG fekete</item>
+        <item>Cooler Master MasterCase H500M</item>
     </string-array>
 
     <string-array name="category_items_name">

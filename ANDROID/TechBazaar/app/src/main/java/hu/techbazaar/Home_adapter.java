@@ -21,12 +21,12 @@ import java.util.List;
 public class Home_adapter extends RecyclerView.Adapter<Home_adapter.ProductViewHolder> implements Filterable {
     private Context context;
     private List<items> productList;
-    private List<items> filter_productlist;
+    private List<items> productListFiltered;
 
     public Home_adapter(Context context, List<items> productList) {
         this.context = context;
         this.productList = productList;
-        this.filter_productlist = productList;
+        this.productListFiltered = productList;
     }
 
     @NonNull
@@ -61,18 +61,34 @@ public class Home_adapter extends RecyclerView.Adapter<Home_adapter.ProductViewH
 
     private Filter productFilter = new Filter() {
         @Override
-        protected FilterResults performFiltering(CharSequence constraint) {
-            ArrayList<items> linkFilter = new ArrayList<>();
-            FilterResults filer_results= new FilterResults();
+        protected FilterResults performFiltering(CharSequence charSequence) {
+            List<items> filteredList = new ArrayList<>();
+            FilterResults results = new FilterResults();
 
-            return filer_results;
+            if(charSequence == null || charSequence.length() == 0) {
+                results.count = productListFiltered.size();
+                results.values = productListFiltered;
+            } else {
+                String filterPattern = charSequence.toString().toLowerCase().trim();
+                for(items item : productListFiltered) {
+                    if(item.getName().toLowerCase().contains(filterPattern)){
+                        filteredList.add(item);
+                    }
+                }
+                results.count = filteredList.size();
+                results.values = filteredList;
+            }
+
+            return results;
         }
 
         @Override
-        protected void publishResults(CharSequence constraint, FilterResults results) {
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+            productList = (List<items>)filterResults.values;
 
+            notifyDataSetChanged();
         }
-    }
+    };
 
     public static class ProductViewHolder extends RecyclerView.ViewHolder {
         // Nézetek beállítása
