@@ -1,12 +1,12 @@
 package hu.techbazaar;
 
-public class items {
+public class Home_items {
     private String name, desc, price;
     private int imgsrc;
     private float rate;
     private boolean isFavorite;
 
-    public items(String name, String desc, String price, int imgsrc, float rate) {
+    public Home_items(String name, String desc, String price, int imgsrc, float rate) {
         this.name = name;
         this.desc = desc;
         this.price = price;

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Categories_activity">
+    tools:context=".Cart_activity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -24,10 +24,10 @@
         android:clipToPadding="false"
         android:scrollbars="none"/>
     <TextView
-        android:id="@+id/later"
+        android:id="@+id/clater"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/upload_later"
+        android:text=""
         android:textSize="24sp"
         android:textColor="@color/red"
         android:textStyle="bold"

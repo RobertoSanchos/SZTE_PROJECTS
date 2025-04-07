@@ -21,10 +21,10 @@ import java.util.List;
 
 public class Home_adapter extends RecyclerView.Adapter<Home_adapter.ProductViewHolder> implements Filterable {
     private Context context;
-    private List<items> productList;
-    private List<items> productListFiltered;
+    private List<Home_items> productList;
+    private List<Home_items> productListFiltered;
 
-    public Home_adapter(Context context, List<items> productList) {
+    public Home_adapter(Context context, List<Home_items> productList) {
         this.context = context;
         this.productList = productList;
         this.productListFiltered = productList;
@@ -41,7 +41,7 @@ public class Home_adapter extends RecyclerView.Adapter<Home_adapter.ProductViewH
     @Override
     public void onBindViewHolder(@NonNull ProductViewHolder holder, int position) {
         // Ertékek hozzárendelése az Recycle view fájlban létrehozott nézetekhez
-        items product = productList.get(position);
+        Home_items product = productList.get(position);
         holder.name.setText(product.getName());
         holder.price.setText(product.getPrice());
         holder.description.setText(product.getDesc());
@@ -80,14 +80,14 @@ public class Home_adapter extends RecyclerView.Adapter<Home_adapter.ProductViewH
     private Filter productFilter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
-            List<items> filteredList = new ArrayList<>();
+            List<Home_items> filteredList = new ArrayList<>();
 
             if (constraint == null || constraint.length() == 0) {
                 filteredList.addAll(productListFiltered);
             } else {
                 String filterPattern = constraint.toString().toLowerCase().trim();
 
-                for (items item : productListFiltered) {
+                for (Home_items item : productListFiltered) {
                     if (item.getName().toLowerCase().contains(filterPattern)) {
                         filteredList.add(item);
                     }
@@ -102,7 +102,7 @@ public class Home_adapter extends RecyclerView.Adapter<Home_adapter.ProductViewH
 
         @Override
         protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-            productList = (List<items>)filterResults.values;
+            productList = (List<Home_items>)filterResults.values;
             notifyDataSetChanged();
         }
     };

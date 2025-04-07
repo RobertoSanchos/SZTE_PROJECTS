@@ -15,12 +15,12 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-public class Category_adapter extends RecyclerView.Adapter<Category_adapter.ViewHolder> {
+public class Categories_adapter extends RecyclerView.Adapter<Categories_adapter.ViewHolder> {
 
-    private List<Category_items> categories;
+    private List<Categories_items> categories;
     private Context context;
 
-    public Category_adapter(Context context, List<Category_items> categories) {
+    public Categories_adapter(Context context, List<Categories_items> categories) {
         this.context = context;
         this.categories = categories;
     }
@@ -34,11 +34,11 @@ public class Category_adapter extends RecyclerView.Adapter<Category_adapter.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Category_items category = categories.get(position);
+        Categories_items category = categories.get(position);
         holder.text.setText(category.getCategory_name());
         Glide.with(context).load(category.getCategory_img()).into(holder.cimg);
         holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(context, categories_activity.class);
+            Intent intent = new Intent(context, Categories_activity.class);
             intent.putExtra("CATEGORY_NAME", category.getCategory_name());
             context.startActivity(intent);
         });
