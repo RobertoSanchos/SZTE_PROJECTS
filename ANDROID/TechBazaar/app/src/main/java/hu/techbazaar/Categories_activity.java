@@ -65,9 +65,16 @@ public class Categories_activity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.search) return true;
-        else if (item.getItemId() == R.id.cart) return true;
-        else if (item.getItemId() == R.id.settings) return true;
+        if (item.getItemId() == R.id.cart) {
+            Intent cart_intent = new Intent(this, Cart_activity.class);
+            startActivity(cart_intent);
+            return true;
+        }
+        else if (item.getItemId() == R.id.settings) {
+            Intent settings_intent = new Intent(this, Settings_activity.class);
+            startActivity(settings_intent);
+            return true;
+        }
         else if (item.getItemId() == R.id.fav){
             Intent favorite_intent = new Intent(this, Favorite_activity.class);
             startActivity(favorite_intent);
