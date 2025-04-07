@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -12,15 +14,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
 import java.util.List;
 
-public class Home_adapter extends RecyclerView.Adapter<Home_adapter.ProductViewHolder> {
+public class Home_adapter extends RecyclerView.Adapter<Home_adapter.ProductViewHolder> implements Filterable {
     private Context context;
     private List<items> productList;
+    private List<items> filter_productlist;
 
     public Home_adapter(Context context, List<items> productList) {
         this.context = context;
         this.productList = productList;
+        this.filter_productlist = productList;
     }
 
     @NonNull
@@ -46,6 +52,26 @@ public class Home_adapter extends RecyclerView.Adapter<Home_adapter.ProductViewH
     public int getItemCount() {
         // A megjelenített termékek számának megadása
         return productList.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        return productFilter;
+    }
+
+    private Filter productFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            ArrayList<items> linkFilter = new ArrayList<>();
+            FilterResults filer_results= new FilterResults();
+
+            return filer_results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+
+        }
     }
 
     public static class ProductViewHolder extends RecyclerView.ViewHolder {
