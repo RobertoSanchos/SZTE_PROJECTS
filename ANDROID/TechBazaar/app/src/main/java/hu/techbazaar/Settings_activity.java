@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -40,7 +39,7 @@ public class Settings_activity extends AppCompatActivity {
         setSupportActionBar(findViewById(R.id.toolbar));
 
         later = findViewById(R.id.slater);
-        later.setText("Beállítások még nem elérhetők!");
+        later.setText("Beállítások még nem elérhetőek!");
     }
 
     private void load_data2(){

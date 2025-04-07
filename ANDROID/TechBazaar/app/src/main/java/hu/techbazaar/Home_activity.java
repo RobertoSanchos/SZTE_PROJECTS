@@ -31,7 +31,6 @@ public class Home_activity extends AppCompatActivity {
     private Categories_adapter cadapter;
 
     private TextView highlighted;
-    private boolean isFavorite = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
