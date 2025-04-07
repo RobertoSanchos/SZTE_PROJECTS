@@ -5,8 +5,10 @@ import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageButton;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,6 +33,7 @@ public class Home_activity extends AppCompatActivity {
     private Category_adapter cadapter;
 
     private TextView highlighted;
+    private boolean isFavorite = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,7 +123,8 @@ public class Home_activity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.cart) return true;
         else if (item.getItemId() == R.id.settings) return true;
-        else if (item.getItemId() == R.id.fav) return true;
+        else if (item.getItemId() == R.id.fav)
+            return true;
         else if (item.getItemId() == R.id.logout) {
             FirebaseAuth.getInstance().signOut();
             Toast.makeText(Home_activity.this, "Kijelentkezve!", Toast.LENGTH_SHORT).show();

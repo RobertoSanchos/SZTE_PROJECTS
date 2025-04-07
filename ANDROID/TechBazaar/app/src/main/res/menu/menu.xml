@@ -19,7 +19,7 @@
     <item
         android:id="@+id/fav"
         android:title="@string/favorite"
-        android:icon="@drawable/favorite"
+        android:icon="@drawable/favorite_on"
         android:orderInCategory="2"
         app:showAsAction="always"
         />

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -46,6 +47,23 @@ public class Home_adapter extends RecyclerView.Adapter<Home_adapter.ProductViewH
         holder.description.setText(product.getDesc());
         holder.rate.setRating(product.getRate());
         Glide.with(context).load(product.getImgsrc()).into(holder.imageView);
+
+        if (product.isFavorite()) {
+            holder.favoriteButton.setImageResource(R.drawable.favorite_on);
+        } else {
+            holder.favoriteButton.setImageResource(R.drawable.favorite_off);
+        }
+
+        // Kedvenc gomb kattintás kezelése
+        holder.favoriteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // A helyes pozíció kezelése a klikkelés során
+                items clickedProduct = productList.get(holder.getAdapterPosition());
+                clickedProduct.setFavorite(!clickedProduct.isFavorite());  // Állapot váltás
+                notifyItemChanged(holder.getAdapterPosition());  // Frissítés
+            }
+        });
     }
 
     @Override
@@ -93,6 +111,7 @@ public class Home_adapter extends RecyclerView.Adapter<Home_adapter.ProductViewH
         // Nézetek beállítása
         TextView name, price, description;
         ImageView imageView;
+        ImageButton favoriteButton;
         RatingBar rate;
 
         public ProductViewHolder(@NonNull View itemView) {
@@ -102,6 +121,7 @@ public class Home_adapter extends RecyclerView.Adapter<Home_adapter.ProductViewH
             description = itemView.findViewById(R.id.item_description);
             imageView = itemView.findViewById(R.id.item_img);
             rate = itemView.findViewById(R.id.item_rate);
+            favoriteButton = itemView.findViewById(R.id.favorite);
         }
     }
 }
