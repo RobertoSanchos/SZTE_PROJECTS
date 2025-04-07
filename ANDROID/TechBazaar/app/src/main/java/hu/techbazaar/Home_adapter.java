@@ -61,31 +61,30 @@ public class Home_adapter extends RecyclerView.Adapter<Home_adapter.ProductViewH
 
     private Filter productFilter = new Filter() {
         @Override
-        protected FilterResults performFiltering(CharSequence charSequence) {
+        protected FilterResults performFiltering(CharSequence constraint) {
             List<items> filteredList = new ArrayList<>();
-            FilterResults results = new FilterResults();
 
-            if(charSequence == null || charSequence.length() == 0) {
-                results.count = productListFiltered.size();
-                results.values = productListFiltered;
+            if (constraint == null || constraint.length() == 0) {
+                filteredList.addAll(productListFiltered);
             } else {
-                String filterPattern = charSequence.toString().toLowerCase().trim();
-                for(items item : productListFiltered) {
-                    if(item.getName().toLowerCase().contains(filterPattern)){
+                String filterPattern = constraint.toString().toLowerCase().trim();
+
+                for (items item : productListFiltered) {
+                    if (item.getName().toLowerCase().contains(filterPattern)) {
                         filteredList.add(item);
                     }
                 }
-                results.count = filteredList.size();
-                results.values = filteredList;
             }
 
+            FilterResults results = new FilterResults();
+            results.values = filteredList;
+            results.count = filteredList.size();
             return results;
         }
 
         @Override
         protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
             productList = (List<items>)filterResults.values;
-
             notifyDataSetChanged();
         }
     };
