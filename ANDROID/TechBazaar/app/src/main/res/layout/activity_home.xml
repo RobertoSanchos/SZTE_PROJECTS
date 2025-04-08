@@ -44,9 +44,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="@string/highlighted_home"
-    android:textSize="24sp"
-    android:textColor="@color/red"
+    android:textSize="20sp"
+    android:textColor="@color/white"
     android:textStyle="bold"
+    android:background="@color/primaryc"
     android:gravity="center"
     />
 
