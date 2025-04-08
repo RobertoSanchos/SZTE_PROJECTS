@@ -21,7 +21,7 @@
         android:title="@string/favorite"
         android:icon="@drawable/items_favorite_off"
         android:orderInCategory="2"
-        app:showAsAction="always"
+        app:showAsAction="ifRoom"
         />
 
     <item

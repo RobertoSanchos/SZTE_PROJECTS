@@ -8,7 +8,7 @@
 <LinearLayout
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".Reg_activity"
     android:background="#FFFFFF">
@@ -84,8 +84,8 @@
         android:id="@+id/checkBox1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:text="Elfogadom az Általános Szerződési Feltételeket"
+        android:layout_marginStart="10dp"
+        android:text="@string/accept_afsz"
         android:textColor="@color/primaryc"
         android:drawable="@drawable/registration_check_active"
         />
@@ -93,8 +93,8 @@
         android:id="@+id/checkBox2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Elfogadom az Adatvédelmi nyilatkozatot"
-        android:layout_marginLeft="10dp"
+        android:text="@string/accept_any"
+        android:layout_marginStart="10dp"
         android:textColor="@color/primaryc"
         android:drawable="@drawable/registration_check_active"
         />
@@ -103,8 +103,8 @@
         android:id="@+id/checkBox3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Feliratkozok a hírlevélre"
-        android:layout_marginLeft="10dp"
+        android:text="@string/subsrcibe"
+        android:layout_marginStart="10dp"
         android:textColor="@color/primaryc"
         android:drawable="@drawable/registration_check_active"
         />

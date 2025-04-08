@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -16,18 +17,15 @@
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ToolbarTheme"
         >
-<!--        <TextView-->
-<!--            android:id="@+id/click_to_home"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="TechBazaar"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:textStyle="bold"-->
-<!--            android:textSize="24sp"-->
-<!--            android:layout_gravity="start"-->
-<!--            android:padding="8dp"-->
-<!--            android:clickable="true"-->
-<!--            android:focusable="true" />-->
+        <ImageButton
+            android:id="@+id/click_to_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:background="@drawable/home"
+            android:onClick="clickHome"
+            android:contentDescription="@string/index"
+            />
     </androidx.appcompat.widget.Toolbar>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -45,9 +43,8 @@
     android:layout_height="wrap_content"
     android:text="@string/highlighted_home"
     android:textSize="20sp"
-    android:textColor="@color/white"
+    android:textColor="@color/red"
     android:textStyle="bold"
-    android:background="@color/primaryc"
     android:gravity="center"
     />
 
@@ -56,6 +53,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="8dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        />
 
 </LinearLayout>

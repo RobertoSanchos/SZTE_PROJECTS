@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.SearchView;
@@ -157,5 +158,10 @@ public class Home_activity extends AppCompatActivity {
             startActivity(protected_intent);
             finish();
         }
+    }
+
+    public void clickHome(View view) {
+        Intent home = new Intent(this, Home_activity.class);
+        startActivity(home);
     }
 }

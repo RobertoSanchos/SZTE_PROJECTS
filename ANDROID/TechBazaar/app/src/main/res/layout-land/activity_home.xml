@@ -14,7 +14,17 @@
         android:background="?attr/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+        <ImageButton
+            android:id="@+id/click_to_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:background="@drawable/home"
+            android:onClick="clickHome"
+            android:contentDescription="@string/index"
+            />
     </androidx.appcompat.widget.Toolbar>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/category_Recycler"
         android:layout_width="match_parent"
@@ -28,7 +38,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:text="@string/highlighted_home"
-    android:textSize="24sp"
+    android:textSize="20sp"
     android:textColor="@color/red"
     android:textStyle="bold"
     android:gravity="center"

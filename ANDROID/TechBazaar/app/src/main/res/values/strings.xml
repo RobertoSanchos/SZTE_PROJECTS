@@ -25,6 +25,10 @@
     <string name="clater">Kosár tartalmának listázása még nem elérhető!</string>
     <string name="flater">Kedvencek listázása még nem elérhető!</string>
     <string name="slater">Beállítások még nem elérhetőek!</string>
+    <string name="accept_afsz">Elfogadom az Általános Szerződési Feltételeket</string>
+    <string name="accept_any">Elfogadom az Adatvédelmi nyilatkozatot</string>
+    <string name="subsrcibe">Feliratkozok a hírlevélre</string>
+    <string name="index">Kezdőlap</string>
 
     <string-array name="items_names">
         <item>Core i5-10400F</item>
