@@ -18,10 +18,15 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 
 public class Home_activity extends AppCompatActivity {
+    private FirebaseFirestore home_item_db;
+    private CollectionReference home_items_ref;
+
     private RecyclerView home_view;
     private RecyclerView category_view;
 
@@ -48,6 +53,10 @@ public class Home_activity extends AppCompatActivity {
 
         home_items = new ArrayList<>();
         category_items = new ArrayList<>();
+
+        home_item_db = FirebaseFirestore.getInstance();
+        home_items_ref = home_item_db.collection("Home_items");
+
         load_data();
         load_data2();
 
@@ -60,6 +69,7 @@ public class Home_activity extends AppCompatActivity {
 
         Animation slideIn = AnimationUtils.loadAnimation(this, R.anim.slide);
         highlighted.startAnimation(slideIn);
+
 
 
     }
