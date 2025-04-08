@@ -39,7 +39,7 @@ public class Settings_activity extends AppCompatActivity {
         setSupportActionBar(findViewById(R.id.toolbar));
 
         later = findViewById(R.id.slater);
-        later.setText("Beállítások még nem elérhetőek!");
+        later.setText(R.string.slater);
     }
 
     private void load_data2(){

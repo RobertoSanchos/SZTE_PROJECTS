@@ -40,7 +40,7 @@ public class Favorite_activity extends AppCompatActivity {
         setSupportActionBar(findViewById(R.id.toolbar));
 
         later = findViewById(R.id.flater);
-        later.setText("Kedvencek listázása még nem elérhető!");
+        later.setText(R.string.flater);
     }
 
     private void load_data2(){

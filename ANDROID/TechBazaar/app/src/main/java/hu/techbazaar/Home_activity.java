@@ -101,6 +101,7 @@ public class Home_activity extends AppCompatActivity {
         MenuItem search_item = menu.findItem(R.id.search);
         SearchView search_view = (SearchView) search_item.getActionView();
 
+        assert search_view != null;
         search_view.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

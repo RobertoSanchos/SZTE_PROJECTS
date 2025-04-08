@@ -39,7 +39,7 @@ public class Cart_activity extends AppCompatActivity {
         setSupportActionBar(findViewById(R.id.toolbar));
 
         later = findViewById(R.id.clater);
-        later.setText("Kosár tartalmának listázása még nem elérhető!");
+        later.setText(R.string.clater);
     }
 
     private void load_data2(){

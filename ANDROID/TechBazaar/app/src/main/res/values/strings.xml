@@ -22,6 +22,9 @@
     <string name="back_to_home">Vissza a főoldalra</string>
     <string name="upload_later">Termékek feltöltése később!</string>
     <string name="higlighted">Kiemelt ajánlataink</string>
+    <string name="clater">Kosár tartalmának listázása még nem elérhető!</string>
+    <string name="flater">Kedvencek listázása még nem elérhető!</string>
+    <string name="slater">Beállítások még nem elérhetőek!</string>
 
     <string-array name="items_names">
         <item>Core i5-10400F</item>
