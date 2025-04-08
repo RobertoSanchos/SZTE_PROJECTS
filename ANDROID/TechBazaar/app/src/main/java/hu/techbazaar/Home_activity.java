@@ -20,6 +20,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+
 
 import java.util.ArrayList;
 
@@ -57,7 +59,7 @@ public class Home_activity extends AppCompatActivity {
         home_item_db = FirebaseFirestore.getInstance();
         home_items_ref = home_item_db.collection("Home_items");
 
-        load_data();
+        load_with_firestore();
         load_data2();
 
         iadapter = new Home_adapter(this, home_items);
@@ -70,8 +72,21 @@ public class Home_activity extends AppCompatActivity {
         Animation slideIn = AnimationUtils.loadAnimation(this, R.anim.slide);
         highlighted.startAnimation(slideIn);
 
+    }
 
-
+    private void load_with_firestore(){
+        home_items.clear();
+        home_items_ref.orderBy("name").get().addOnSuccessListener(queryDocumentSnapshots -> {
+                for(QueryDocumentSnapshot docu : queryDocumentSnapshots){
+                    Home_items item = docu.toObject(Home_items.class);
+                    home_items.add(item);
+                }
+                if(home_items.isEmpty()) {
+                    load_data();
+                    load_with_firestore();
+                }
+                iadapter.notifyDataSetChanged();
+        });
     }
 
     private void load_data() {
@@ -81,14 +96,14 @@ public class Home_activity extends AppCompatActivity {
         TypedArray items_images = getResources().obtainTypedArray(R.array.items_images);
         TypedArray items_rated = getResources().obtainTypedArray(R.array.items_rates);
 
-        home_items.clear();
-
-        for (int i = 0; i < items_name.length;i++){
-            home_items.add(new Home_items(items_name[i], items_description[i],
-                    items_price[i], items_images.getResourceId(i,0),
+        for (int i = 0; i < items_name.length;i++) {
+            home_items_ref.add(new Home_items(
+                    items_name[i],
+                    items_description[i],
+                    items_price[i],
+                    items_images.getResourceId(i, 0),
                     items_rated.getFloat(i, 0)));
         }
-
         items_images.recycle();
     }
 

@@ -6,6 +6,7 @@ public class Home_items {
     private float rate;
     private boolean isFavorite;
 
+    public Home_items() {}
 
     public Home_items(String name, String desc, String price, int imgsrc, float rate) {
         this.name = name;
