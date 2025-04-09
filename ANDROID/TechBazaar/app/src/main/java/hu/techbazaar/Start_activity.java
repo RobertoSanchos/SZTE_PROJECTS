@@ -96,9 +96,9 @@ public class Start_activity extends AppCompatActivity {
         String jelszo = password.getText().toString();
 
         if(TextUtils.isEmpty(email))
-            Toast.makeText(this, "Nem adtad meg az email címed!", Toast.LENGTH_SHORT).show();
+            login_email.setError("Add meg az email címedet a bejelentkezéshez!");
         else if(TextUtils.isEmpty(jelszo))
-            Toast.makeText(this, "Nem adtad meg a jelszódat!", Toast.LENGTH_SHORT).show();
+            password.setError("Add meg a jelszódat a bejelentkezéshez!");
         else {
             Main_Auth.signInWithEmailAndPassword(email, jelszo).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
