@@ -82,7 +82,7 @@
     <CheckBox
         android:layout_marginTop="20dp"
         android:id="@+id/checkBox1"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:text="@string/accept_afsz"
@@ -91,7 +91,7 @@
         />
     <CheckBox
         android:id="@+id/checkBox2"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/accept_any"
         android:layout_marginStart="10dp"

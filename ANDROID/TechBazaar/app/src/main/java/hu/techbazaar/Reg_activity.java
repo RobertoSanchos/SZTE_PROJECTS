@@ -54,8 +54,7 @@ public class Reg_activity extends AppCompatActivity {
         else if (p1.isEmpty()) password_1.setError("Nem adtál meg jelszót!");
         else if (p1.length() < 6) password_1.setError("A jelszónak legalább 6 karakternek kell lennie!");
         else if (!p1.equals(p2)) password_2.setError("Nem egyeznek a jelszók!");
-        else if (!cs1) ch_1.setError("Nem fogadtad el a feltételt!");
-        else if (!cs2) ch_2.setError("Nem fogadtad el a feltételt!");
+        else if (!cs1 || !cs2) Toast.makeText(Reg_activity.this,"A feltételek elfogadása kötelező!", Toast.LENGTH_SHORT).show();
         else {
             first_Auth.createUserWithEmailAndPassword(email_address, p1).addOnCompleteListener(this, task -> {
                 if (task.isSuccessful()) {
