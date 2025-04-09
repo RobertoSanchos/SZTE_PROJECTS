@@ -28,8 +28,6 @@ public class Forgot_password_fragment extends DialogFragment {
         return inflater.inflate(R.layout.fragment_forgot_password, container, false);
     }
 
-
-
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         EditText emailInput = view.findViewById(R.id.email_input);
         Button cancel = view.findViewById(R.id.btn_cancel);

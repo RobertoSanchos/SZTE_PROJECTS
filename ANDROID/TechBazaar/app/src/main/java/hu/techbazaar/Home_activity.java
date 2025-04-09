@@ -22,16 +22,16 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.ArrayList;
 
 public class Home_activity extends AppCompatActivity {
-    private RecyclerView home_view;
-    private RecyclerView category_view;
+    RecyclerView home_view;
+    RecyclerView category_view;
 
     private ArrayList<Home_items> home_items;
     private ArrayList<Categories_items> category_items;
 
     private Home_adapter iadapter;
-    private Categories_adapter cadapter;
+    Categories_adapter cadapter;
 
-    private TextView highlighted;
+    TextView highlighted;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

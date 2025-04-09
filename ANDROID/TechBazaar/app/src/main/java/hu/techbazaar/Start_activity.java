@@ -9,13 +9,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
+import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Objects;
 
 
 public class Start_activity extends AppCompatActivity {
@@ -93,22 +91,19 @@ public class Start_activity extends AppCompatActivity {
         if(email.isEmpty()) login_email.setError("Add meg az email címedet a bejelentkezéshez!");
         else if(jelszo.isEmpty()) password.setError("Add meg a jelszódat a bejelentkezéshez!");
         else {
-            Main_Auth.signInWithEmailAndPassword(email, jelszo).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        if(remember_check.isChecked()){
-                            saveC(email, jelszo);
-                        }
-                        else {
-                            clearC();
-                        }
-                        Toast.makeText(Start_activity.this, "Sikeres bejelentkezés!", Toast.LENGTH_SHORT).show();
-                        home();
-                    } else {
-                        Toast.makeText(Start_activity.this, "Sikertelen belépés: "
-                                + task.getException().getMessage(), Toast.LENGTH_LONG).show();
+            Main_Auth.signInWithEmailAndPassword(email, jelszo).addOnCompleteListener(this, task -> {
+                if (task.isSuccessful()) {
+                    if(remember_check.isChecked()){
+                        saveC(email, jelszo);
                     }
+                    else {
+                        clearC();
+                    }
+                    Toast.makeText(Start_activity.this, "Sikeres bejelentkezés!", Toast.LENGTH_SHORT).show();
+                    home();
+                } else {
+                    Toast.makeText(Start_activity.this, "Sikertelen belépés: "
+                            + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_LONG).show();
                 }
             });
         }
@@ -116,16 +111,13 @@ public class Start_activity extends AppCompatActivity {
     }
 
     public void signInWithGuest(View view) {
-        Main_Auth.signInAnonymously().addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(Start_activity.this, "Sikeres bejelentkezés!", Toast.LENGTH_SHORT).show();
-                    home();
-                } else {
-                    Toast.makeText(Start_activity.this, "Sikertelen belépés: "
-                            + task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                }
+        Main_Auth.signInAnonymously().addOnCompleteListener(this, task -> {
+            if (task.isSuccessful()) {
+                Toast.makeText(Start_activity.this, "Sikeres bejelentkezés!", Toast.LENGTH_SHORT).show();
+                home();
+            } else {
+                Toast.makeText(Start_activity.this, "Sikertelen belépés: "
+                        + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_LONG).show();
             }
         });
     }

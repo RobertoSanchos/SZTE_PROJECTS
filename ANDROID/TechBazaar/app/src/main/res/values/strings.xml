@@ -29,6 +29,11 @@
     <string name="accept_any">Elfogadom az Adatvédelmi nyilatkozatot</string>
     <string name="subsrcibe">Feliratkozok a hírlevélre</string>
     <string name="index">Kezdőlap</string>
+    <string name="forgot_password">Elfelejtetted a jelszavad?</string>
+    <string name="email_req">Add meg az Email címed</string>
+    <string name="email_input_hint">valami@valami.hu</string>
+    <string name="Send_fp_email">Visszaállítás</string>
+    <string name="cancel_fp_email">Mégse</string>
 
     <string-array name="items_names">
         <item>Core i5-10400F</item>

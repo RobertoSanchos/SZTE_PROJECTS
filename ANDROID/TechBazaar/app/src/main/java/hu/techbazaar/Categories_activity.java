@@ -1,5 +1,6 @@
 package hu.techbazaar;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -20,10 +21,11 @@ import java.util.ArrayList;
 public class Categories_activity extends AppCompatActivity {
     TextView back;
 
-    private RecyclerView category_view;
-    private Categories_adapter cadapter;
+    RecyclerView category_view;
+    Categories_adapter cadapter;
     private ArrayList<Categories_items> category_items;
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

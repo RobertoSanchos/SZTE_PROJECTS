@@ -2,19 +2,16 @@ package hu.techbazaar;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Objects;
 
 public class Reg_activity extends AppCompatActivity {
     private static final int SK = 34788;
@@ -60,16 +57,13 @@ public class Reg_activity extends AppCompatActivity {
         else if (!cs1) ch_1.setError("Nem fogadtad el a feltételt!");
         else if (!cs2) ch_2.setError("Nem fogadtad el a feltételt!");
         else {
-            first_Auth.createUserWithEmailAndPassword(email_address, p1).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        Toast.makeText(Reg_activity.this, "Sikeres regisztráció!", Toast.LENGTH_SHORT).show();
-                        home();
-                    } else {
-                        Toast.makeText(Reg_activity.this, "Sikertelen regisztráció: "
-                                + task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                    }
+            first_Auth.createUserWithEmailAndPassword(email_address, p1).addOnCompleteListener(this, task -> {
+                if (task.isSuccessful()) {
+                    Toast.makeText(Reg_activity.this, "Sikeres regisztráció!", Toast.LENGTH_SHORT).show();
+                    home();
+                } else {
+                    Toast.makeText(Reg_activity.this, "Sikertelen regisztráció: "
+                            + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_LONG).show();
                 }
             });
         }

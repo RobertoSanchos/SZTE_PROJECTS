@@ -20,8 +20,8 @@ import java.util.ArrayList;
 public class Settings_activity extends AppCompatActivity {
 
     TextView later;
-    private RecyclerView category_view;
-    private Categories_adapter cadapter;
+    RecyclerView category_view;
+    Categories_adapter cadapter;
     private ArrayList<Categories_items> category_items;
 
     @Override
