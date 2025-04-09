@@ -42,6 +42,11 @@ public class Start_activity extends AppCompatActivity {
 
         sp = getSharedPreferences("RUsers", MODE_PRIVATE);
         loadSavedC();
+
+        forgotPassword.setOnClickListener(v -> {
+            Forgot_password_fragment dialog = new Forgot_password_fragment();
+            dialog.show(getSupportFragmentManager(), "PasswordReset");
+        });
     }
 
     private void saveC(String email, String password){
@@ -84,10 +89,8 @@ public class Start_activity extends AppCompatActivity {
         String email = login_email.getText().toString();
         String jelszo = password.getText().toString();
 
-        if(TextUtils.isEmpty(email))
-            Toast.makeText(this, "Nem adtad meg az email címed!", Toast.LENGTH_SHORT).show();
-        else if(TextUtils.isEmpty(jelszo))
-            Toast.makeText(this, "Nem adtad meg a jelszódat!", Toast.LENGTH_SHORT).show();
+        if(email.isEmpty()) login_email.setError("Add meg az email címedet a bejelentkezéshez!");
+        else if(jelszo.isEmpty()) password.setError("Add meg a jelszódat a bejelentkezéshez!");
         else {
             Main_Auth.signInWithEmailAndPassword(email, jelszo).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
