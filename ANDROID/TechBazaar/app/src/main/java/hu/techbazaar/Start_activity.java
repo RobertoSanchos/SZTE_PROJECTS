@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -22,7 +23,9 @@ import com.google.firebase.auth.FirebaseAuth;
 public class Start_activity extends AppCompatActivity {
     private static final int SK = 34788;
 
+
     EditText login_email, password;
+    TextView forgotPassword;
     CheckBox remember_check;
 
     private FirebaseAuth Main_Auth;
@@ -34,6 +37,7 @@ public class Start_activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        forgotPassword = findViewById(R.id.forgot_password);
         login_email = findViewById(R.id.login_email);
         password = findViewById(R.id.password);
         remember_check = findViewById(R.id.remember_check);
@@ -42,6 +46,13 @@ public class Start_activity extends AppCompatActivity {
 
         sp = getSharedPreferences("RUsers", MODE_PRIVATE);
         loadSavedC();
+
+        forgotPassword.setOnClickListener(v -> {
+            Forgot_password_fragment dialog = new Forgot_password_fragment();
+            dialog.show(getSupportFragmentManager(), "PasswordReset");
+        });
+
+
     }
 
     private void saveC(String email, String password){

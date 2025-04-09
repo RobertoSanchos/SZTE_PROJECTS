@@ -52,18 +52,13 @@ public class Reg_activity extends AppCompatActivity {
         boolean cs1 = ch_1.isChecked();
         boolean cs2 = ch_2.isChecked();
 
-        if (TextUtils.isEmpty(username))
-            Toast.makeText(this, "Nem adtál meg felhasználónevet!", Toast.LENGTH_SHORT).show();
-        else if (TextUtils.isEmpty(email_address))
-            Toast.makeText(this, "Nem adtál meg email címet!", Toast.LENGTH_SHORT).show();
-        else if (TextUtils.isEmpty(p1))
-            Toast.makeText(this, "Nem adtál meg jelszót!", Toast.LENGTH_SHORT).show();
-        else if (!p1.equals(p2))
-            Toast.makeText(this, "Nem egyeznek a jelszók!", Toast.LENGTH_SHORT).show();
-        else if (p1.length() < 6)
-            Toast.makeText(this, "A jelszónak legalább 6 karakter hosszúnak kell lennie!", Toast.LENGTH_SHORT).show();
-        else if (!cs1 || !cs2)
-            Toast.makeText(this, "Nem fogadtad el a feltételeket!", Toast.LENGTH_SHORT).show();
+        if (username.isEmpty()) new_username.setError("Felhasználónév megadása kötelező!");
+        else if (email_address.isEmpty()) email.setError("Email cím megadása kötelező!");
+        else if (p1.isEmpty()) password_1.setError("Nem adtál meg jelszót!");
+        else if (p1.length() < 6) password_1.setError("A jelszónak legalább 6 karakternek kell lennie!");
+        else if (!p1.equals(p2)) password_2.setError("Nem egyeznek a jelszók!");
+        else if (!cs1) ch_1.setError("Nem fogadtad el a feltételt!");
+        else if (!cs2) ch_2.setError("Nem fogadtad el a feltételt!");
         else {
             first_Auth.createUserWithEmailAndPassword(email_address, p1).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                 @Override
