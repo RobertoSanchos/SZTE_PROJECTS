@@ -23,7 +23,7 @@ public class Start_activity extends AppCompatActivity {
 
     EditText login_email, password;
     CheckBox remember_check;
-    TextView forgotPassword = findViewById(R.id.forgot_password);
+    TextView forgotPassword;
 
     private FirebaseAuth Main_Auth;
 
@@ -43,6 +43,7 @@ public class Start_activity extends AppCompatActivity {
         sp = getSharedPreferences("RUsers", MODE_PRIVATE);
         loadSavedC();
 
+        forgotPassword = findViewById(R.id.forgot_password);
         forgotPassword.setOnClickListener(v -> {
             Forgot_password_fragment dialog = new Forgot_password_fragment();
             dialog.show(getSupportFragmentManager(), "PasswordReset");
